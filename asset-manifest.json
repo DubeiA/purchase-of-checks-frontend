@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/purchase-of-checks-frontend/static/css/main.10ae46df.css",
-    "main.js": "/purchase-of-checks-frontend/static/js/main.574b1da1.js",
+    "main.css": "/purchase-of-checks-frontend/static/css/main.23088de8.css",
+    "main.js": "/purchase-of-checks-frontend/static/js/main.bdca6e2a.js",
     "index.html": "/purchase-of-checks-frontend/index.html",
-    "main.10ae46df.css.map": "/purchase-of-checks-frontend/static/css/main.10ae46df.css.map",
-    "main.574b1da1.js.map": "/purchase-of-checks-frontend/static/js/main.574b1da1.js.map"
+    "main.23088de8.css.map": "/purchase-of-checks-frontend/static/css/main.23088de8.css.map",
+    "main.bdca6e2a.js.map": "/purchase-of-checks-frontend/static/js/main.bdca6e2a.js.map"
   },
   "entrypoints": [
-    "static/css/main.10ae46df.css",
-    "static/js/main.574b1da1.js"
+    "static/css/main.23088de8.css",
+    "static/js/main.bdca6e2a.js"
   ]
 }
