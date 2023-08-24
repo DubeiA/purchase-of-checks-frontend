@@ -1,0 +1,40 @@
+.container {
+  width: 700px;
+}
+
+.list {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-around;
+
+  list-style: none;
+  padding: 0;
+  gap: 5px;
+}
+
+.list_product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  /* list-style: none; */
+  padding: 0;
+  gap: 5px;
+}
+
+.item_product {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 90px;
+  position: relative;
+}
+
+.box_btn {
+  display: flex;
+}
+
+.delete_btn {
+  position: absolute;
+  right: 10px;
+  top: 14px;
+}

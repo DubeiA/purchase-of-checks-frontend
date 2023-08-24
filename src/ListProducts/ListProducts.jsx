@@ -32,7 +32,9 @@ export const ListProducts = ({ onSelectProduct }) => {
     onSelectProduct(product);
   };
 
-  return (
+  return !products.length >= 1 ? (
+    <p>Loading</p>
+  ) : (
     <div className={css.box}>
       <form>
         <input

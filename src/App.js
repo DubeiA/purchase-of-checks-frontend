@@ -13,6 +13,7 @@ export const App = () => {
       setSelectedProducts([...selectedProducts, product]);
     }
   };
+
   return (
     <div className={css.container}>
       <ListProducts onSelectProduct={handleSelectProduct} />
