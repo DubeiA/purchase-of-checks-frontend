@@ -6,7 +6,6 @@ import css from "./ListProducts.module.css";
 export const ListProducts = ({ onSelectProduct }) => {
   const [products, setProducts] = useState([]);
   const [searchText, setSearchText] = useState("");
-  //   const [selectedProducts, setSelectedProducts] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {

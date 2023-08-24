@@ -2,8 +2,6 @@ import { ListProducts } from "./ListProducts/ListProducts.jsx";
 import { ListReceipt } from "./ListReceipt/ListReceipt.jsx";
 import css from "./ListProducts/ListProducts.module.css";
 import { useState } from "react";
-// import css from "./index.css";
-// import { SearchBar } from "./SearchBar/SearchBar.jsx";
 
 export const App = () => {
   const [selectedProducts, setSelectedProducts] = useState([]);
