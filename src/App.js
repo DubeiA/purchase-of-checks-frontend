@@ -1,7 +1,24 @@
 import { ListProducts } from "./ListProducts/ListProducts.jsx";
+import { ListReceipt } from "./ListReceipt/ListReceipt.jsx";
+import css from "./ListProducts/ListProducts.module.css";
+import { useState } from "react";
+// import css from "./index.css";
+// import { SearchBar } from "./SearchBar/SearchBar.jsx";
 
-function App() {
-  return <ListProducts></ListProducts>;
-}
+export const App = () => {
+  const [selectedProducts, setSelectedProducts] = useState([]);
 
-export default App;
+  const handleSelectProduct = (product) => {
+    if (selectedProducts.includes(product)) {
+      setSelectedProducts(selectedProducts.filter((p) => p !== product));
+    } else {
+      setSelectedProducts([...selectedProducts, product]);
+    }
+  };
+  return (
+    <div className={css.container}>
+      <ListProducts onSelectProduct={handleSelectProduct} />
+      <ListReceipt selectedProducts={selectedProducts} />
+    </div>
+  );
+};
