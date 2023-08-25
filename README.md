@@ -1,3 +1,5 @@
+This application is designed for displaying products, calculating the cost of these products, and generating receipts. When you click on a product, it creates a new receipt and appears in the table on the right, displaying the quantity, unit price, and total amount. The total sum of the products is shown at the bottom. Upon clicking the button, a receipt is generated with the overall cost and closing date. For this application, there is also a small server where these data are stored. Here is the link to the repository https://github.com/DubeiA/purchase-of-checks-backend.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
