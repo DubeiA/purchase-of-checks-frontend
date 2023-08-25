@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../api/fetch";
+import { getProducts } from "../api/ApiProducts";
 
 import css from "./ListProducts.module.css";
 
@@ -33,7 +33,7 @@ export const ListProducts = ({ onSelectProduct }) => {
   };
 
   return !products.length >= 1 ? (
-    <p>Loading</p>
+    <p>Wait for Loading... </p>
   ) : (
     <div className={css.box}>
       <form>

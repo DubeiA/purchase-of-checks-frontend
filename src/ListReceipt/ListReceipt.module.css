@@ -30,6 +30,9 @@
 }
 
 .box_btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   display: flex;
 }
 
@@ -37,4 +40,65 @@
   position: absolute;
   right: 10px;
   top: 14px;
+}
+
+.price_box {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.quantity {
+  display: inline-flex;
+  width: 61px;
+  position: absolute;
+  margin: 0;
+  font-size: small;
+  top: 0px;
+
+  left: -50px;
+}
+
+.calc {
+  position: absolute;
+  top: 0px;
+  left: -50px;
+  font-weight: 600;
+}
+
+.pay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box_btn {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-style: none;
+
+  width: 100%;
+  height: 46px;
+
+  background: black;
+  box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  border-radius: 16px;
+
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 129%;
+
+  letter-spacing: -0.02em;
+
+  color: #fff;
 }

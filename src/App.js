@@ -17,7 +17,10 @@ export const App = () => {
   return (
     <div className={css.container}>
       <ListProducts onSelectProduct={handleSelectProduct} />
-      <ListReceipt selectedProducts={selectedProducts} />
+      <ListReceipt
+        selectedProducts={selectedProducts}
+        filterProducts={setSelectedProducts}
+      />
     </div>
   );
 };
