@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/purchase-of-checks-frontend/static/css/main.6025be78.css",
-    "main.js": "/purchase-of-checks-frontend/static/js/main.0c912169.js",
+    "main.css": "/purchase-of-checks-frontend/static/css/main.1c9f0f2d.css",
+    "main.js": "/purchase-of-checks-frontend/static/js/main.35d0f13b.js",
     "index.html": "/purchase-of-checks-frontend/index.html",
-    "main.6025be78.css.map": "/purchase-of-checks-frontend/static/css/main.6025be78.css.map",
-    "main.0c912169.js.map": "/purchase-of-checks-frontend/static/js/main.0c912169.js.map"
+    "main.1c9f0f2d.css.map": "/purchase-of-checks-frontend/static/css/main.1c9f0f2d.css.map",
+    "main.35d0f13b.js.map": "/purchase-of-checks-frontend/static/js/main.35d0f13b.js.map"
   },
   "entrypoints": [
-    "static/css/main.6025be78.css",
-    "static/js/main.0c912169.js"
+    "static/css/main.1c9f0f2d.css",
+    "static/js/main.35d0f13b.js"
   ]
 }
