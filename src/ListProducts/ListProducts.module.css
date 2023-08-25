@@ -34,7 +34,8 @@
   border-radius: 10px;
   display: block;
   outline: none;
-  width: 450px;
+  width: 400px;
+  margin-left: 33px;
   height: 30px;
   padding: 10px;
   color: #333;
@@ -46,5 +47,8 @@
 }
 
 .container {
+  margin-top: 50px;
   display: flex;
+  justify-content: center;
+  /* align-items: center; */
 }

@@ -73,7 +73,7 @@ export const ListReceipt = ({ selectedProducts, filterProducts }) => {
   useEffect(() => {
     if (isOpen && selectedProducts && quantities.length >= 1) {
       handleCreateReceipt();
-      console.log(receiptId);
+
       setIsOpen(false);
     }
   }, [
@@ -97,7 +97,6 @@ export const ListReceipt = ({ selectedProducts, filterProducts }) => {
   }, [quantities, receiptId, selectedProducts]);
 
   const close = async (receiptId) => {
-    console.log(receiptId);
     await closeReceipt(receiptId, getTotalPrice());
     setQuantities([]);
     setIsOpen(true);
@@ -105,58 +104,55 @@ export const ListReceipt = ({ selectedProducts, filterProducts }) => {
   };
 
   return (
-    <div className={css.container}>
-      <div>
-        <ul className={css.list}>
-          <li>#</li>
-          <li>Найменування</li>
-          <li>Кількість</li>
-          <li>Вартість</li>
-        </ul>
+    <div className={css.prod_box}>
+      <div className={css.container}>
+        <div>
+          <ul className={css.list}>
+            <li>#</li>
+            <li>Найменування</li>
+            <li>Кількість</li>
+            <li>Вартість</li>
+          </ul>
+        </div>
+        <div>
+          <ol className={css.list_product}>
+            {selectedProducts.map((product, index) => (
+              <li className={css.item_product} key={product.id}>
+                <p>{index + 1}</p>
+                <p>{product.name}</p>
+                <div className={css.box_btn}>
+                  <button onClick={() => decrement(index)}>-</button>
+                  <p>{quantities[index]}</p>
+                  <button onClick={() => increment(index)}>+</button>
+                </div>
+                <div className={css.price_box}>
+                  <p className={css.quantity}>
+                    {quantities[index]} * {product.price}
+                  </p>
+                  <p className={css.calc}>
+                    {(product.price * quantities[index]).toFixed(2)}
+                  </p>
+                </div>
+                <button
+                  className={css.delete_btn}
+                  onClick={() => removeProduct(receiptId, product)}
+                >
+                  X
+                </button>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
-      <div>
-        <ol className={css.list_product}>
-          {selectedProducts.map((product, index) => (
-            <li className={css.item_product} key={product.id}>
-              <p>{index + 1}</p>
-              <p>{product.name}</p>
-              <div className={css.box_btn}>
-                <button onClick={() => decrement(index)}>-</button>
-                <p>{quantities[index]}</p>
-                <button onClick={() => increment(index)}>+</button>
-              </div>
-              <div className={css.price_box}>
-                <p className={css.quantity}>
-                  {quantities[index]} * {product.price}
-                </p>
-                <p className={css.calc}>
-                  {(product.price * quantities[index]).toFixed(2)}
-                </p>
-              </div>
-              <button
-                className={css.delete_btn}
-                onClick={() => removeProduct(receiptId, product)}
-              >
-                X
-              </button>
-            </li>
-          ))}
-        </ol>
-        <div className={css.pay}>
-          <p
-            className={css.create_receipt_btn}
-            //   onClick={() => setIsOpen(true)}
-          >
-            До сплати: {getTotalPrice()}$
-          </p>
-          <div className={css.box_btn}>
-            <button className={css.btn} onClick={() => close(receiptId.id)}>
-              Карткою
-            </button>
-            <button className={css.btn} onClick={() => close(receiptId.id)}>
-              готікою{" "}
-            </button>
-          </div>
+      <div className={css.pay}>
+        <p className={css.create_receipt_btn}>До сплати: {getTotalPrice()}$</p>
+        <div className={css.box_btn}>
+          <button className={css.btn} onClick={() => close(receiptId.id)}>
+            Карткою
+          </button>
+          <button className={css.btn} onClick={() => close(receiptId.id)}>
+            готікою{" "}
+          </button>
         </div>
       </div>
     </div>
