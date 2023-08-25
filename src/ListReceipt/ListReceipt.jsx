@@ -12,6 +12,7 @@ export const ListReceipt = ({ selectedProducts, filterProducts }) => {
   const [receiptId, setReceiptId] = useState(null);
   const [quantities, setQuantities] = useState([]);
   const [isOpen, setIsOpen] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (selectedProducts) {
@@ -20,6 +21,7 @@ export const ListReceipt = ({ selectedProducts, filterProducts }) => {
   }, [selectedProducts]);
 
   const removeProduct = async (receiptId, product) => {
+    setLoading(true);
     try {
       await deleteReceipt(receiptId.id, product.id);
       filterProducts((prevProducts) =>
@@ -27,6 +29,8 @@ export const ListReceipt = ({ selectedProducts, filterProducts }) => {
       );
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -97,10 +101,16 @@ export const ListReceipt = ({ selectedProducts, filterProducts }) => {
   }, [quantities, receiptId, selectedProducts]);
 
   const close = async (receiptId) => {
-    await closeReceipt(receiptId, getTotalPrice());
-    setQuantities([]);
-    setIsOpen(true);
-    filterProducts([]);
+    setLoading(true);
+    try {
+      await closeReceipt(receiptId, getTotalPrice());
+      setQuantities([]);
+      setIsOpen(true);
+      filterProducts([]);
+    } catch (error) {
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -115,33 +125,37 @@ export const ListReceipt = ({ selectedProducts, filterProducts }) => {
           </ul>
         </div>
         <div>
-          <ol className={css.list_product}>
-            {selectedProducts.map((product, index) => (
-              <li className={css.item_product} key={product.id}>
-                <p>{index + 1}</p>
-                <p>{product.name}</p>
-                <div className={css.box_btn}>
-                  <button onClick={() => decrement(index)}>-</button>
-                  <p>{quantities[index]}</p>
-                  <button onClick={() => increment(index)}>+</button>
-                </div>
-                <div className={css.price_box}>
-                  <p className={css.quantity}>
-                    {quantities[index]} * {product.price}
-                  </p>
-                  <p className={css.calc}>
-                    {(product.price * quantities[index]).toFixed(2)}
-                  </p>
-                </div>
-                <button
-                  className={css.delete_btn}
-                  onClick={() => removeProduct(receiptId, product)}
-                >
-                  X
-                </button>
-              </li>
-            ))}
-          </ol>
+          {loading ? (
+            <p>Loading</p>
+          ) : (
+            <ol className={css.list_product}>
+              {selectedProducts.map((product, index) => (
+                <li className={css.item_product} key={product.id}>
+                  <p>{index + 1}</p>
+                  <p>{product.name}</p>
+                  <div className={css.box_btn}>
+                    <button onClick={() => decrement(index)}>-</button>
+                    <p>{quantities[index]}</p>
+                    <button onClick={() => increment(index)}>+</button>
+                  </div>
+                  <div className={css.price_box}>
+                    <p className={css.quantity}>
+                      {quantities[index]} * {product.price}
+                    </p>
+                    <p className={css.calc}>
+                      {(product.price * quantities[index]).toFixed(2)}
+                    </p>
+                  </div>
+                  <button
+                    className={css.delete_btn}
+                    onClick={() => removeProduct(receiptId, product)}
+                  >
+                    X
+                  </button>
+                </li>
+              ))}
+            </ol>
+          )}
         </div>
       </div>
       <div className={css.pay}>
